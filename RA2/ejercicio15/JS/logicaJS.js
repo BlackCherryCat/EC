@@ -9,7 +9,7 @@ function verResolucion() {
     const num = prompt("Por favor, ingrese un número natural");
 
     // Controlar que el número sea válido
-    if (num <= 0) {
+    if (num < 0) {
         document.getElementById("actividadEvaluableR").innerHTML = "Error: solo se puede calcular el factorial de un número natural.";
         return;
     }
