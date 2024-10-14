@@ -8,9 +8,9 @@ function verResolucion() {
     introducirElArr(array);
     texto = " ";
     for (let i = 0; i < longitud(array); i++) {
-        texto = texto + " " + array[i];
+        texto = texto  + array[i] + ", ";
     }
-    document.getElementById("actividadEvaluableR").innerHTML = texto
+    document.getElementById("actividadEvaluableR").innerHTML = "Elementos del array: " + texto + " Longitud: " + longitud(array)
 }
 
 function introducirElArr(arr = []) {
