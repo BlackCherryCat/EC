@@ -19,21 +19,18 @@ function verResolucion() {
     let max = -Infinity;
     let min = Infinity;
     for (let i = 1; i <= numElementos; i++) {
-        const numero = prompt("Por favor, ingrese el " + i + " elemento de la secuencia");
-        const numeroNum = parseInt(numero);
-        if (numeroNum > max) {
-            max = numeroNum;
+        let numero = parseInt(prompt("Por favor, ingrese el " + i + " elemento de la secuencia"));
+        if (numero > max) {
+            max = numero;
         }
-        if (numeroNum < min) {
-            min = numeroNum;
+        if (numero < min) {
+            min = numero;
         }
     }
 
     // Muestra el número más alto y el más bajo
-    const resultadoHtml = `
-        <h2>Resultado:</h2>
-        <p>Número más alto: ${max}</p>
-        <p>Número más bajo: ${min}</p>
-    `;
-    document.getElementById("actividadEvaluableR").innerHTML = resultadoHtml
+    let texto =
+        "<p>Número más alto: " + max + "</p>" +
+        "<p>Número más bajo: " + min + "</p>";
+    document.getElementById("actividadEvaluableR").innerHTML = texto
 }

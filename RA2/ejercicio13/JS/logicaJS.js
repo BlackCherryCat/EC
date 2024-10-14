@@ -7,11 +7,11 @@ function verEnunciado() {
     document.getElementById("actividadEvaluable").innerHTML = enunciado
 }
 function verResolucion() {
-    const numElementos = prompt("Por favor, ingrese el número de elementos de la secuencia (del 1 al 100)");
+    let numElementos = prompt("Por favor, ingrese el número de elementos de la secuencia (del 1 al 100)");
 
     // Controlar que el número de elementos sea válido
     if (numElementos < 1 || numElementos > 100) {
-        alert("El número de elementos debe ser del 1 al 100.");
+        document.getElementById("actividadEvaluableR").innerHTML = "El número de elementos debe ser del 1 al 100.";
         return;
     }
 
@@ -21,8 +21,9 @@ function verResolucion() {
         const numero = prompt("Por favor, ingrese el " + i + " elemento de la secuencia");
         secuencia[i - 1] = parseInt(numero);
     }
-    let texto;
-    for (let i = numElementos; i >= 0; i--) {
+    
+    let texto="";
+    for (let i = numElementos-1; i >= 0; i--) {
         texto = texto + secuencia[i] + " ";
     }
     document.getElementById("actividadEvaluableR").innerHTML = texto

@@ -5,11 +5,11 @@ function verEnunciado() {
     document.getElementById("actividadEvaluable").innerHTML = enunciado
 }
 function verResolucion() {
-    const dni = prompt("Por favor, ingrese su número de DNI");
+    const dni = parseInt(prompt("Por favor, ingrese su número de DNI"));
 
     // Controlar que el número de DNI sea válido
     if (dni < 0 || dni > 99999999) {
-        alert("El número de DNI debe ser un número entero positivo de 8 dígitos.");
+        document.getElementById("actividadEvaluableR").innerHTML = "El número de DNI debe ser un número entero positivo de 8 dígitos.";
         return;
     }
 
@@ -24,7 +24,7 @@ function verResolucion() {
     const letraCalculada = letras[resto];
 
     // Comprobar si la letra calculada coincide con la letra ingresada por el usuario
-    if (letraCalculada !== letra) {
+    if (letraCalculada != letra) {
         document.getElementById("actividadEvaluableR").innerHTML = "La letra del DNI que ha ingresado no es correcta. Por favor, inténtelo de nuevo.";
         return;
     }

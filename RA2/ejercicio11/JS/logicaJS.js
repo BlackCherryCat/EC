@@ -7,35 +7,43 @@ function verEnunciado() {
 }
 function verResolucion() {
     let cantidad = parseInt(prompt("introduzca una cantidad de dinero"));
-    if (cantidad % 5 !== 0) {
+    if (cantidad % 5 != 0) {
         document.getElementById("actividadEvaluableR").innerHTML = "La cantidad debe ser múltiplo de 5."
     } else {
-        const cantidadNum = parseInt(cantidad);
-
         // Desglose el cambio en billetes
-        const cambio = {
-            500: parseInt(cantidadNum / 500),
-            200: parseInt((cantidadNum % 500) / 200),
-            100: parseInt(((cantidadNum % 500) % 200) / 100),
-            50: parseInt((((cantidadNum % 500) % 200) % 100) / 50),
-            20: parseInt(((((cantidadNum % 500) % 200) % 100) % 50) / 20),
-            10: parseInt((((((cantidadNum % 500) % 200) % 100) % 50) % 20) / 10),
-            5: parseInt(((((((cantidadNum % 500) % 200) % 100) % 50) % 20) % 10) / 5)
+        let cambio = {
+            500: parseInt(cantidad / 500),
+            200: parseInt((cantidad % 500) / 200),
+            100: parseInt(((cantidad % 500) % 200) / 100),
+            50: parseInt((((cantidad % 500) % 200) % 100) / 50),
+            20: parseInt(((((cantidad % 500) % 200) % 100) % 50) / 20),
+            10: parseInt((((((cantidad % 500) % 200) % 100) % 50) % 20) / 10),
+            5: parseInt(((((((cantidad % 500) % 200) % 100) % 50) % 20) % 10) / 5)
         };
 
         // Muestra el cambio en billetes
-        const cambioHtml = `
-        <h2>Cambio en Billetes:</h2>
-        <ul>
-            <li>500: ${cambio[500]}</li>
-            <li>200: ${cambio[200]}</li>
-            <li>100: ${cambio[100]}</li>
-            <li>50: ${cambio[50]}</li>
-            <li>20: ${cambio[20]}</li>
-            <li>10: ${cambio[10]}</li>
-            <li>5: ${cambio[5]}</li>
-        </ul>
-    `;
-        document.getElementById("actividadEvaluableR").innerHTML = cambioHtml
+        let texto = " "
+        if (cambio[500] != 0) {
+            texto = texto + "<p>" + cambio[500] + " billete(s) de 500 euros</p>"
+        }
+        if (cambio[200] != 0) {
+            texto = texto + "<p>" + cambio[200] + " billete(s) de 200 euros</p>"
+        }
+        if (cambio[100] != 0) {
+            texto = texto + "<p>" + cambio[100] + " billete(s) de 100 euros</p>"
+        }
+        if (cambio[50] != 0) {
+            texto = texto + "<p>" + cambio[50] + " billete(s) de 50 euros</p>"
+        }
+        if (cambio[20] != 0) {
+            texto = texto + "<p>" + cambio[20] + " billete(s) de 20 euros</p>"
+        }
+        if (cambio[10] != 0) {
+            texto = texto + "<p>" + cambio[10] + " billete(s) de 10 euros</p>"
+        }
+        if (cambio[5] != 0) {
+            texto = texto + "<p>" + cambio[5] + " billete(s) de 5 euros</p>"
+        }
+        document.getElementById("actividadEvaluableR").innerHTML = texto
     }
 }
