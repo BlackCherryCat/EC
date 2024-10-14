@@ -8,9 +8,11 @@ function verEnunciado() {
 function verResolucion() {
     let num = [];
     let pos;
+    let cont=0;
 
     while (num[num.length - 1] != -1){
-        num.push(parseInt(prompt("introduzca una nota")));
+        num[cont]=(parseInt(prompt("introduzca una nota")));
+        cont++
     }
 
     for (let i = 0; i < num.length - 1; i++) {
