@@ -16,7 +16,6 @@ function verResolucion() {
     // Ventana emergente para solicitar la letra del DNI
     const letra = prompt("Por favor, ingrese la letra de su DNI");
 
-    // Controlar que la letra del DNI sea válida
     const letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
 
     // Calcular la letra del DNI según el método explicado anteriormente

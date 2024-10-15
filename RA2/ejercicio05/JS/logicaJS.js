@@ -16,6 +16,7 @@ function verResolucion() {
     let horas = parseInt(prompt("introduzca horas trabajadas"));
     let valorXhora = parseInt(prompt("introduzca valor por hora de trabajo"));
     let salario = 0;
+    //Controlamos a base de condicionales, las condiciones que deben de cumplirse para obtener el salario neto
     if (horas <= 35) {
         salario = horas * valorXhora;
     } else {

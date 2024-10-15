@@ -11,10 +11,12 @@ function verEnunciado() {
 function verResolucion() {
     let X = parseInt(prompt("introduzca el número a multiplicar"));
     let Y = parseInt(prompt("introduzca el multiplicador"));
+    //Controlamos la validez de los datos
     if (X <= -50 || X >= 50) {
         document.getElementById("actividadEvaluableR").innerHTML = "el número a multiplicar tiene que ser entre -50 y 50";
     } else if (Y <= 1 || Y >= 20) {
         document.getElementById("actividadEvaluableR").innerHTML = "el multiplicador debe ser entre 1 y 20";
+        //Imprimimos la tabla de multiplicar con el formato solicitado
     } else {
         let texto = "";
         for (let i = 1; i <= Y; i++) {

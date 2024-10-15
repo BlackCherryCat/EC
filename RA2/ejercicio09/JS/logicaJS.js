@@ -8,19 +8,19 @@ function verEnunciado() {
 function verResolucion() {
     let num = [];
     let pos;
-    let cont=0;
-
-    while (num[num.length - 1] != -1){
-        num[cont]=(parseInt(prompt("introduzca una nota")));
+    let cont = 0;
+    //Va introduciendo numeros en num hasta que se encuentre un -1
+    while (num[num.length - 1] != -1) {
+        num[cont] = (parseInt(prompt("introduzca una nota")));
         cont++
     }
-
+    //Recorre el array para comprobar si hay algun 10
     for (let i = 0; i < num.length - 1; i++) {
         if (num[i] == 10) {
-           pos = true;
+            pos = true;
         }
     }
-
+    //Mostrar resultado
     if (pos) {
         document.getElementById("actividadEvaluableR").innerHTML = "SI";
     } else {
