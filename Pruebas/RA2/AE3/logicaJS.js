@@ -16,7 +16,7 @@ function verResolucion() {
         "<p><a class=\"box\" id=\"20\" onclick=\"jugar(2,0);\">📦</a><a class=\"box\" id=\"21\" onclick=\"jugar(2,1);\">📦</a><a class=\"box\" id=\"22\" onclick=\"jugar(2,2);\">📦</a></p>";
     for (let i = 0; i < solucion.length; i++) {
         for (let j = 0; j < solucion[i].length; j++) {
-            solucion[i][j] = Math.floor(Math.random());
+            solucion[i][j] = Math.round(Math.random());
         }
     }
     console.log(solucion);
