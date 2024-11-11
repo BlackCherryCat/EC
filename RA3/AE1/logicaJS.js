@@ -12,8 +12,8 @@ function verEnunciado() {
 function verResolucion() {
     let email = "";
     email=prompt("Escribe un correo");
-    const regex = $;
-    if (regex.test(email.toLowerCase)) {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.(com|com\.es|site)$/;
+    if (regex.test(email)) {
         document.getElementById("actividadEvaluableR").innerHTML = "Es válido"
     }else{
         document.getElementById("actividadEvaluableR").innerHTML = "No es válido"
