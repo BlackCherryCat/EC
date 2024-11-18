@@ -12,7 +12,7 @@ function verEnunciado() {
 function verResolucion() {
     let email = "";
     email=prompt("Escribe un correo");
-    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.(com|com\.es|site)$/;
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9_-]+\.[a-zA-Z]{2,4}(\.[a-zA-Z]{2,4})?$/;
     if (regex.test(email)) {
         document.getElementById("actividadEvaluableR").innerHTML = "Es válido"
     }else{
