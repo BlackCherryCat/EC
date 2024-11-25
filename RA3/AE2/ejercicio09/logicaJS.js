@@ -66,7 +66,8 @@ function verResolucion() {
             res = "Posición del último \"a\": " + index;
             break;
         case '10':
-
+            res = str.localeCompare("Consiste en lanzar aros") + `. El hecho de que nos de -1 significa que iria antes que la 
+        cadena original si fuese 1 seria despues de la cadena original y 0 es que son iguales`
             break;
         case '11':
             index = str.indexOf("ar");
