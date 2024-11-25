@@ -6,22 +6,20 @@ function verEnunciado() {
     document.getElementById("actividadEvaluable").innerHTML = enunciado
 }
 function verResolucion() {
-    const frase = prompt("Introduce una palabra o frase:");
-    // Llamar a la función para verificar si es un palíndromo
-    const resultado = verificarPalindromo(frase);
-    document.getElementById("actividadEvaluableR").innerHTML = resultado;
+    const phrase = prompt("Introduce una palabra o frase:");
+    document.getElementById("actividadEvaluableR").innerHTML = verifyPalindrome(phrase);
 }
-function verificarPalindromo(frase) {
-    // Eliminar los espacios en blanco y convertir la frase a minúsculas
-    const fraseLimpia = frase.replace(/\s+/g, '').toLowerCase();
+function verifyPalindrome(phrase) {
+    // Eliminar los espacios en blanco y pasarlo a minúsculas
+    const phrase_wo_spac = phrase.replace(/\s/g, "").toLowerCase();
 
     // Invertir la frase
-    const fraseInvertida = fraseLimpia.split('').reverse().join('');
+    const inversedPhrase = phrase_wo_spac.split('').reverse().join('');
 
-    // Comparar la frase limpia con su versión invertida
-    if (fraseLimpia == fraseInvertida) {
-        return frase + " es un palíndromo.";
+    // Comparar la frase sin espacios con su versión invertida
+    if (phrase_wo_spac == inversedPhrase) {
+        return phrase + " es un palíndromo.";
     } else {
-        return frase + " no es un palíndromo.";
+        return phrase + " no es un palíndromo.";
     }
 }

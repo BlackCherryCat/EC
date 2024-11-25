@@ -8,32 +8,28 @@ function verEnunciado() {
 function verResolucion() {
     let ph1 = prompt("Ingrese la primera palabra o frase").toLowerCase();
     let ph2 = prompt("Ingrese la segunda palabra o frase").toLowerCase();
-
-    let caracteresComunes = obtenerCaracteresComunes(ph1, ph2);
-    document.getElementById("actividadEvaluableR").innerHTML = "Caracteres en común: " + caracteresComunes;
+    document.getElementById("actividadEvaluableR").innerHTML = "Caracteres en común: " + comChar(ph1, ph2);
 }
 
-function obtenerCaracteresComunes(ph1, ph2) {
-
-
+function comChar(ph1, ph2) {
     // Eliminar espacios en blanco y convertir las cadenas a minúsculas
-    ph1 = ph1.replace(/\s+/g, '').toLowerCase();
-    ph2 = ph2.replace(/\s+/g, '').toLowerCase();
+    ph1 = ph1.replace(" ", "").toLowerCase();
+    ph2 = ph2.replace(" ", "").toLowerCase();
 
     let comunes = [];
 
     // Recorrer cada carácter de la primera cadena
     for (let i = 0; i < ph1.length; i++) {
-        let caracter = ph1[i];
+        let char = ph1[i];
 
         // Verificar si el carácter está en la segunda cadena y no ha sido añadido ya
-        if (ph2.includes(caracter) & !comunes.includes(caracter)) {
-            comunes.push(caracter);
+        if (ph2.includes(char) & !comunes.includes(char)) {
+            comunes.push(char);
         }
     }
 
     // Ordenar los caracteres comunes de menor a mayor y devolverlos como una cadena
-    return comunes.sort().join('');
+    return comunes.sort().join("");
 }
 
 

@@ -5,27 +5,25 @@ function verEnunciado() {
     document.getElementById("actividadEvaluable").innerHTML = enunciado
 }
 function verResolucion() {
-    const frase = prompt("Introduce una frase:");
-    const palabra1 = prompt("Introduce la primera palabra:") + ":";
-    const palabra2 = prompt("Introduce la segunda palabra:");
-    // Llamar a la función para insertar la segunda palabra detrás de la primera
-    const resultado = insertarPalabra(frase, palabra1, palabra2);
-    document.getElementById("actividadEvaluableR").innerHTML = "Resultado: " + resultado;
+    const phrase = prompt("Introduce una frase:");
+    const word1 = prompt("Introduce la primera palabra:");
+    const word2 = prompt("Introduce la segunda palabra:");
+
+    document.getElementById("actividadEvaluableR").innerHTML = "Resultado: " + insert(phrase, word1, word2);
 }
 
-function insertarPalabra(frase, palabra1, palabra2) {
-    // Usar una expresión regular para buscar la palabra1 seguida de dos puntos
-    const indice = frase.indexOf(palabra1);
-    // Si la palabra1 está en la frase, insertamos palabra2 detrás de ella
-    if (indice != -1) {
-        // Dividir la frase en dos partes: antes de palabra1 y después de palabra1
-        const antes = frase.slice(0, indice + palabra1.length);
-        const despues = frase.slice(indice + palabra1.length);
+function insert(phrase, word1, word2) {
+    const index = phrase.indexOf(word1);
+    // Si la primera palabra está en la frase, insertamos la segunda detrás de ella
+    if (index != -1) {
+        // Dividir la frase en dos partes: antes de la primera palabra y después de la segunda
+        const antes = phrase.slice(0, index + word1.length);
+        const despues = phrase.slice(index + word1.length);
 
-        // Crear la nueva frase con la palabra2 insertada después de palabra1
-        return antes + " " + palabra2 + " " + despues;
+        // Crear la nueva frase con la segunda palabra insertada después de la primera
+        return antes + " " + word2 + " " + despues;
     } else {
-        // Si no se encuentra palabra1, devolver la frase original
-        return frase;
+        // Si no se encuentra la primera palabra, devolver la frase original
+        return phrase;
     }
 }

@@ -19,7 +19,7 @@ function verResolucion() {
                 9. Posición del último "a".
                 10. Comparar con "Consiste en lanzar aros".
                 11. Coincidencias con "ar".
-                12. Repetir la str 3 veces.
+                12. Repetir la cadena 3 veces.
                 13. Reemplazar "lanzar" por "coger".
                 14. Buscar "ste" y su posición.
                 15. Obtener los primeros 5 caracteres.
@@ -46,7 +46,7 @@ function verResolucion() {
             break;
         case '4':
             res = "Cadena concatenada: " + str + " ¿roto? … ¿o mejorado?" + "\n¿Se modificó la cadena original? No, " +
-                "debido a que estoy modificando la variable que contiene la str original.";
+                "debido a que no estoy modificando la variable que contiene la cadena original.";
             break;
         case '5':
             res = "¿La cadena termina con \"aro\"? " + (str.endsWith("aro") ? "Sí" : "No");
