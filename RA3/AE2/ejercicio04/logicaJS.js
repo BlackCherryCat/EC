@@ -1,5 +1,6 @@
 function verEnunciado() {
-    let enunciado = "";
+    const enunciado = "Realiza una aplicación web dónde se solicite por pantalla, mediante una ventana emergente, al usuario una cadena y el carácter buscado. <br/>" +
+        "Crea una función recursiva que cuente el número de veces que el carácter introducido por el usuario aparece en la cadena introducida por el usuario.";
     document.getElementById("actividadEvaluable").innerHTML = enunciado
 }
 

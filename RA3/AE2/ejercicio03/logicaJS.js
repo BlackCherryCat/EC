@@ -1,5 +1,6 @@
 function verEnunciado() {
-    let enunciado = "";
+    const enunciado = "Realiza una aplicación web dónde se solicite por pantalla, mediante una ventana emergente, al usuario una frase. <br/>" +
+        "Crea una función que reciba como argumento esa frase y devuelva el número de espacios, dígitos y letras contenidos en la frase. Puedes usar expresiones regulares.";
     document.getElementById("actividadEvaluable").innerHTML = enunciado
 }
 function verResolucion() {

@@ -1,5 +1,5 @@
 function verEnunciado() {
-    let enunciado = "Realiza una aplicación web dónde se solicite por pantalla, mediante una ventana emergente, " +
+    const enunciado = "Realiza una aplicación web dónde se solicite por pantalla, mediante una ventana emergente, " +
         "al usuario una frase con letras y números. <br/>" +
         "Crea una función que reciba como argumento esa frase y devuelva la suma de todos los dígitos contenidos en la frase.";
     document.getElementById("actividadEvaluable").innerHTML = enunciado
