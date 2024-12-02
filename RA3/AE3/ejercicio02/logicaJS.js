@@ -15,18 +15,18 @@ function verEnunciado() {
 function verResolucion() {
     let comb = parseInt(prompt("Ingrese el número de combinaciones"));
     if (comb > 0 | comb <= 8) {
-        let boletos = [];
+        let boletos = [[]];
         for (let i = 0; i < comb; i++) {
             // Generar combinación de enfrentamientos
             let combinacion = [];
             for (let j = 0; j < 14; j++) {
                 let resultado = Math.floor(Math.random() * 3);
                 if (resultado == 0) {
-                    resultado = '1';
+                    resultado = '<p><a class="win">1</a><a>X</a><a>2</a></p>';
                 } else if (resultado == 1) {
-                    resultado = 'X';
+                    resultado = '<p><a>1</a><a class="win">X</a><a>2</a></p>';
                 } else {
-                    resultado = '2';
+                    resultado = '<p><a>1</a><a>X</a><a class="win">2</a></p>';
                 }
                 combinacion.push(resultado);
             }
@@ -35,30 +35,32 @@ function verResolucion() {
             let pleno = '';
             let numero = Math.round(Math.random() * 3);
             if (numero == 0) {
-                pleno = '0';
+                pleno = '<br/><a class="win">0</a><a>1</a><a>2</a><a>M</a><br/><br/>';
             } else if (numero == 1) {
-                pleno = '1';
+                pleno = '<br/><a>0</a><a class="win">1</a><a>2</a><a>M</a><br/><br/>';
             } else if (numero == 2) {
-                pleno = '2';
+                pleno = '<br/><a>0</a><a>1</a><a class="win">2</a><a>M</a><br/><br/>';
             } else {
-                pleno = 'M';
+                pleno = '<br/><a>0</a><a>1</a><a>2</a><a class="win">M</a><br/><br/>';
             }
-
-            // Agregar boleto con combinación y Pleno
-            let boleto = `<p>Combinación ${i + 1}: ${combinacion.join(' ')}</p>`;
-            boleto += `<p>Pleno al 15: ${pleno} </p>`;
-            boletos.push(boleto);
-
-            // Mostrar el boleto
-            mostrarBoleto(combinacion, pleno, i + 1);
+            boletos.push(combinacion);
+            boletos.push(pleno)
         }
+        // Mostrar el boleto
+        document.getElementById('actividadEvaluableR').innerHTML = mostrarBoleto(boletos)
     } else {
-        document.getElementById('actividadEvaluableR').innerHTML = "Número introducido nno válido"
+        document.getElementById('actividadEvaluableR').innerHTML = "Número introducido no válido"
     }
 }
 
-function mostrarBoleto(combinacion, pleno, num) {
-    let boletoHtml = `<p>Combinación ${num}: ${combinacion.join(' ')}</p>`;
-    boletoHtml += `<p>Pleno al 15: ${pleno} goles</p>`;
-    document.getElementById('actividadEvaluableR').innerHTML += boletoHtml;
+function mostrarBoleto(boletos) {
+    let boletoHtml = '';
+    for (let i = 0; i < boletos.length; i++) {
+        boletoHtml += '<p>'
+        for (let j = 0; j < boletos[i].length; j++) {
+            boletoHtml += boletos[i][j]
+        }
+        boletoHtml += '</p>'
+    }
+    return boletoHtml;
 }
