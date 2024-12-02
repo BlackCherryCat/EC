@@ -14,31 +14,34 @@ function verResolucion() {
     document.getElementById("actividadEvaluableR").innerHTML = '';
     let num = parseInt(prompt("Ingrese el número de combinaciones"));
     if (num > 0 | num <= 8) {
-        let boletos = [];
+        let boletos = [[]];
         for (let i = 0; i < num; i++) {
-            let comb = [];
+            let numeros = []
             for (let j = 0; j < 6; j++) {
                 let numero = Math.floor(Math.random() * 49);
-                while (comb.includes(numero)) {
+                while (numeros.includes(numero)) {
                     numero = Math.floor(Math.random() * 49);
                 }
-                comb.push(numero);
+                numeros.push(numero);
             }
-
-            // Agregar boleto con reintegro
-            let boleto = `<p>combinación ${i + 1}: ${comb.join(' ')}</p>`;
-            boleto += `<p>Reintegro: ${Math.floor(Math.random() * 10) + 1}</p>`;
-            boletos.push(boleto);
-
-            // Mostrar el boleto
-            mostrarBoleto(comb, i + 1);
+            boletos.push(numeros);
         }
+        document.getElementById('actividadEvaluableR').innerHTML = mostrarBoleto(boletos) + Reintegro();
     } else {
         document.getElementById('actividadEvaluableR').innerHTML = "Número introducido no válido"
     }
 }
-function mostrarBoleto(comb, num) {
-    let boletoHtml = `<p>combinación ${num}: ${comb.join(' ')}</p>`;
-    boletoHtml += `<p>Reintegro: ${Math.floor(Math.random() * 10) + 1}</p>`;
-    document.getElementById("actividadEvaluableR").innerHTML += boletoHtml;
+function mostrarBoleto(boletos) {
+    let boletoHtml = ''
+    for (let i = 0; i < boletos.length; i++) {
+        boletoHtml += '<p>'
+        for (let j = 0; j < boletos[i].length; j++) {
+            boletoHtml += `<a>${boletos[i][j]}</a>`
+        }
+        boletoHtml += '</p>'
+    }
+    return boletoHtml;
+}
+function Reintegro() {
+    return `<p>Reintegro: <a class="reint">${Math.floor(Math.random() * 10) + 1}</a></p>`;
 }

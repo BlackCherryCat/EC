@@ -1,0 +1,18 @@
+p a {
+  text-align: center;
+  width: 30px;
+  height: 20px;
+  padding: 5px;
+  border-radius: 30px;
+  margin: 5px;
+  background-color: burlywood;
+  border: 1px solid black;
+}
+p a.reint {
+  width: 20px;
+  height: 20px;
+  border-radius: 12.5px;
+  margin-left: 5px;
+  background-color: rgb(223, 113, 113);
+  border: 1px solid black;
+}
