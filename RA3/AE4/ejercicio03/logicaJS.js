@@ -8,22 +8,20 @@ function verEnunciado() {
 }
 function verResolucion() {
     const fechaInput = prompt("Ingrese una fecha en formato DD/MM/YYYY:");
-        const partesFecha = fechaInput.split("/");
-        if (partesFecha.length !== 3) throw new Error("Formato inválido");
+    const partesFecha = fechaInput.split("/");
 
-        const dia = parseInt(partesFecha[0], 10);
-        const mes = parseInt(partesFecha[1], 10) - 1; // Restar 1 porque los meses en JavaScript van de 0 a 11
-        const año = parseInt(partesFecha[2], 10);
+    const dia = parseInt(partesFecha[0], 10);
+    const mes = parseInt(partesFecha[1], 10) - 1; // Restar 1 porque los meses en JavaScript van de 0 a 11
+    const año = parseInt(partesFecha[2], 10);
 
-        const fecha = new Date(año, mes, dia);
-        if (isNaN(fecha) || fecha.getDate() !== dia || fecha.getMonth() !== mes || fecha.getFullYear() !== año) {
-            throw new Error("Fecha inválida");
-        }
+    const fecha = new Date(año, mes, dia);
+    if (isNaN(fecha) || fecha.getDate() !== dia || fecha.getMonth() !== mes || fecha.getFullYear() !== año) {
+        document.getElementById("actividadEvaluableR").innerHTML = "Fecha inválida";
+    }
 
-        const numeroDias = calcularDiasDelMes(fecha);
-        document.getElementById("actividadEvaluableR").innerHTML = `El mes ${mes + 1} del año ${año} tiene ${numeroDias} días.`;
+    const numeroDias = calcularDiasDelMes(fecha);
+    document.getElementById("actividadEvaluableR").innerHTML = `El mes ${mes + 1} del año ${año} tiene ${numeroDias} días.`;
 }
-
 function calcularDiasDelMes(fecha) {
     const mes = fecha.getMonth();
     const año = fecha.getFullYear();
