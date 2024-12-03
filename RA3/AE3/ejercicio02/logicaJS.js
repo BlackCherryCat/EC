@@ -35,13 +35,13 @@ function verResolucion() {
             let pleno = '';
             let numero = Math.round(Math.random() * 3);
             if (numero == 0) {
-                pleno = '<br/><a class="win">0</a><a>1</a><a>2</a><a>M</a><br/><br/>';
+                pleno = '<br/><p><a class="win">0</a><a>1</a><a>2</a><a>M</a></p><br/>';
             } else if (numero == 1) {
-                pleno = '<br/><a>0</a><a class="win">1</a><a>2</a><a>M</a><br/><br/>';
+                pleno = '<br/><p><a>0</a><a class="win">1</a><a>2</a><a>M</a></p><br/>';
             } else if (numero == 2) {
-                pleno = '<br/><a>0</a><a>1</a><a class="win">2</a><a>M</a><br/><br/>';
+                pleno = '<br/><p><a>0</a><a>1</a><a class="win">2</a><a>M</a></p><br/>';
             } else {
-                pleno = '<br/><a>0</a><a>1</a><a>2</a><a class="win">M</a><br/><br/>';
+                pleno = '<br/><p><a>0</a><a>1</a><a>2</a><a class="win">M</a></p><br/>';
             }
             boletos.push(combinacion);
             boletos.push(pleno)
@@ -56,11 +56,9 @@ function verResolucion() {
 function mostrarBoleto(boletos) {
     let boletoHtml = '';
     for (let i = 0; i < boletos.length; i++) {
-        boletoHtml += '<p>'
         for (let j = 0; j < boletos[i].length; j++) {
             boletoHtml += boletos[i][j]
         }
-        boletoHtml += '</p>'
     }
     return boletoHtml;
 }
