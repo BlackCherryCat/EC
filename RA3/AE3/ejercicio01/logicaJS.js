@@ -11,7 +11,6 @@ function verEnunciado() {
     document.getElementById("actividadEvaluable").innerHTML = enunciado
 }
 function verResolucion() {
-    document.getElementById("actividadEvaluableR").innerHTML = '';
     let num = parseInt(prompt("Ingrese el número de combinaciones"));
     if (num > 0 | num <= 8) {
         let boletos = [[]];

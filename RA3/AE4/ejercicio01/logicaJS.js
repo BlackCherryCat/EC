@@ -10,9 +10,11 @@ function verEnunciado() {
 function verResolucion() {
     let date = new Date();
     let day = date.toLocaleDateString('ES', { weekday: 'long' })
+    
     let nextdate = new Date(date);
     nextdate.setDate(date.getDate() + 1)
     let nextday = nextdate.toLocaleDateString('ES', { weekday: 'long' })
+
     if (date.getHours() <= 6) {
         document.getElementById("actividadEvaluableR").innerHTML = `Buenas noches, le deseamos lo mejor para el ${nextday} próximo`
     } else if (date.getHours() <= 12) {

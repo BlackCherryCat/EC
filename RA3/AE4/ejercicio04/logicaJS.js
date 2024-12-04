@@ -33,6 +33,6 @@ function getWeek(fecha) {
     firstThursday.setDate(firstThursday.getDate() - ((firstThursday.getDay() + 6) % 7));
     // Calcular la diferencia en semanas        //Esto se hace porque las fechas funcionan en milisegundos
     const weekDiff = (fecha - firstThursday) / (7 * 24 * 60 * 60 * 1000);
-    // Redondear al entero más cercano y sumar 1 porque las semanas comienzan en 1
+    // Redondear al entero más cercano y sumar 1 porque las semanas comienzan en 0
     return Math.floor(weekDiff) + 1;
 };

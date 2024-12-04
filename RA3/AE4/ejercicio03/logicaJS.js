@@ -15,12 +15,12 @@ function verResolucion() {
     const año = parseInt(partesFecha[2], 10);
 
     const fecha = new Date(año, mes, dia);
+
     if (isNaN(fecha) || fecha.getDate() !== dia || fecha.getMonth() !== mes || fecha.getFullYear() !== año) {
         document.getElementById("actividadEvaluableR").innerHTML = "Fecha inválida";
     }
 
-    const numeroDias = calcularDiasDelMes(fecha);
-    document.getElementById("actividadEvaluableR").innerHTML = `El mes ${mes + 1} del año ${año} tiene ${numeroDias} días.`;
+    document.getElementById("actividadEvaluableR").innerHTML = `El mes ${mes + 1} del año ${año} tiene ${calcularDiasDelMes(fecha)} días.`;
 }
 function calcularDiasDelMes(fecha) {
     const mes = fecha.getMonth();
