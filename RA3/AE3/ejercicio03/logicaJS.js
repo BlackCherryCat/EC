@@ -13,10 +13,13 @@ function verResolucion() {
       <button onclick="quiniela();">Jugar La Quiniela</button>
       `
 }
+let boletos = [[]];
+let reintegro = 0;
 function primitiva() {
     let num = parseInt(prompt("Ingrese el número de combinaciones"));
     if (num > 0 | num <= 8) {
-        let boletos = [[]];
+        boletos = [[]];
+        reintegro = 0;
         for (let i = 0; i < num; i++) {
             let numeros = []
             for (let j = 0; j < 6; j++) {
@@ -28,7 +31,13 @@ function primitiva() {
             }
             boletos.push(numeros);
         }
-        document.getElementById('actividadEvaluableR').innerHTML = mostrarBoleto(boletos) + Reintegro();
+        reintegro = Math.floor(Math.random() * 10) + 1
+        document.getElementById('actividadEvaluableR').innerHTML = mostrarBoleto(boletos) + `<p>Reintegro: <a class="reint">${reintegro}</a></p>` + `
+        <div id="ganancia">
+        <button onclick="ResultadoP();">Ver ganancia</button>
+        <button onclick="ResultadoPM();">Ver ganancia manual</button>
+        </div>
+        `;
     } else {
         document.getElementById('actividadEvaluableR').innerHTML = "Número introducido no válido"
     }
@@ -45,15 +54,58 @@ function primitiva() {
         return boletoHtml;
     }
 
-    function Reintegro() {
-        return `<p>Reintegro: <a class="reint">${Math.floor(Math.random() * 10) + 1}</a></p>`;
+}
+
+function ResultadoP() {
+    let combG = [];
+    let aciertos = 0;
+    let reintG = Math.floor(Math.random() * 10) + 1;
+    for (let i = 0; i < 6; i++) {
+        combG.push(Math.floor(Math.random() * 49))
     }
+    for (let i = 1; i < boletos.length; i++) {
+        for (let j = 0; j < boletos[i].length; j++) {
+            for (let k = 0; k < combG.length; k++) {
+                if (boletos[i][j] == combG[k]) {
+                    aciertos++
+                }
+            }
+        }
+    }
+    if (reintegro == reintG) {
+        document.getElementById('ganancia').innerHTML = `<p>${aciertos} aciertos + Reintegro <button onclick="primitiva();">Reintentar</button></p>`
+    } else {
+        document.getElementById('ganancia').innerHTML = `<p>${aciertos} aciertos <button onclick="primitiva();">Reintentar</button></p>`
+    }
+
+}
+
+function ResultadoPM() {
+    let intr = prompt('Introduce combinacion');
+    let combG = intr.split(' ');
+    let aciertos = 0;
+    let reintG = prompt('Introduce reintegro');
+    for (let i = 1; i < boletos.length; i++) {
+        for (let j = 0; j < boletos[i].length; j++) {
+            for (let k = 0; k < combG.length; k++) {
+                if (boletos[i][j] == combG[k]) {
+                    aciertos++
+                }
+            }
+        }
+    }
+    if (reintegro == reintG) {
+        document.getElementById('ganancia').innerHTML = `<p>${aciertos} aciertos + Reintegro <button onclick="primitiva();">Reintentar</button></p>`
+    } else {
+        document.getElementById('ganancia').innerHTML = `<p>${aciertos} aciertos <button onclick="primitiva();">Reintentar</button></p>`
+    }
+
 }
 
 function quiniela() {
     let comb = parseInt(prompt("Ingrese el número de combinaciones"));
     if (comb > 0 | comb <= 8) {
-        let boletos = [[]];
+        boletos = [[]];
         for (let i = 0; i < comb; i++) {
             // Generar combinación de enfrentamientos
             let combinacion = [];
