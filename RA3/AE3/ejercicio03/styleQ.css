@@ -13,3 +13,12 @@ p a.win {
   background-color: rgb(223, 113, 113);
   
 }
+.qui{
+margin: 10px;
+  float: left;
+}
+.pleno{
+ position: absolute;
+ padding-top: 900px;
+}
+

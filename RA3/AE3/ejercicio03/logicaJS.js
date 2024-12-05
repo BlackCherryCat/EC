@@ -102,6 +102,7 @@ function ResultadoPM() {
 
 }
 
+let pleno = [];
 function quiniela() {
     let comb = parseInt(prompt("Ingrese el número de combinaciones"));
     if (comb > 0 | comb <= 8) {
@@ -110,46 +111,78 @@ function quiniela() {
             // Generar combinación de enfrentamientos
             let combinacion = [];
             for (let j = 0; j < 14; j++) {
-                let resultado = Math.floor(Math.random() * 3);
-                if (resultado == 0) {
-                    resultado = '<p><a class="win">1</a><a>X</a><a>2</a></p>';
-                } else if (resultado == 1) {
-                    resultado = '<p><a>1</a><a class="win">X</a><a>2</a></p>';
-                } else {
-                    resultado = '<p><a>1</a><a>X</a><a class="win">2</a></p>';
-                }
-                combinacion.push(resultado);
-            }
-
-            // Agregar boleto con Pleno al 15
-            let pleno = '';
-            let numero = Math.round(Math.random() * 3);
-            if (numero == 0) {
-                pleno = '<br/><p><a class="win">0</a><a>1</a><a>2</a><a>M</a></p><br/>';
-            } else if (numero == 1) {
-                pleno = '<br/><p><a>0</a><a class="win">1</a><a>2</a><a>M</a></p><br/>';
-            } else if (numero == 2) {
-                pleno = '<br/><p><a>0</a><a>1</a><a class="win">2</a><a>M</a></p><br/>';
-            } else {
-                pleno = '<br/><p><a>0</a><a>1</a><a>2</a><a class="win">M</a></p><br/>';
+                combinacion[j] = Math.floor(Math.random() * 3);
             }
             boletos.push(combinacion);
-            boletos.push(pleno)
         }
+        pleno = [];
+        pleno[0] = Math.round(Math.random() * 3);
+        pleno[1] = Math.round(Math.random() * 3);
         // Mostrar el boleto
-        document.getElementById('actividadEvaluableR').innerHTML = mostrarBoleto(boletos)
+        document.getElementById('actividadEvaluableR').innerHTML = mostrarBoleto(comb) + `
+        <div id="ganancia">
+        <button onclick="ResultadoQ();">Ver ganancia</button>
+        </div>
+        `
     } else {
         document.getElementById('actividadEvaluableR').innerHTML = "Número introducido no válido"
     }
 
-    function mostrarBoleto(boletos) {
+    function mostrarBoleto(comb) {
         let boletoHtml = '';
-        for (let i = 0; i < boletos.length; i++) {
-            for (let j = 0; j < boletos[i].length; j++) {
-                boletoHtml += boletos[i][j]
+        let pleno = `
+            <div class="pleno">
+            <p><a id="00">0</a><a id="10">1</a><a id="20">2</a><a id="m0">M</a></p>
+            <p><a id="01">0</a><a id="11">1</a><a id="21">2</a><a id="m1">M</a></p>
+            </div>
+        `;
+        for (let i = 1; i < comb + 1; i++) {
+            boletoHtml += `
+            <div class="qui">
+            `
+            for (let j = 0; j < 14; j++) {
+                boletoHtml += `<p><a id="${i}${j}0">1</a><a id="${i}${j}1">X</a><a id="${i}${j}2">2</a></p>`
+
+            }
+            boletoHtml += `
+            </div>
+            `
+        }
+        return boletoHtml + pleno;
+    }
+}
+
+function ResultadoQ() {
+    for (let i = 1; i < boletos.length; i++) {
+        console.log(boletos[i])
+        for (let j = 0; j < 14; j++) {
+            if (boletos[i][j] == 0) {
+                document.getElementById('' + i + j + 0).style.backgroundColor = "rgb(223, 113, 113)"
+            }
+            else if (boletos[i][j] == 1) {
+                document.getElementById('' + i + j + 1).style.backgroundColor = "rgb(223, 113, 113)"
+            }
+            else {
+                document.getElementById('' + i + j + 2).style.backgroundColor = "rgb(223, 113, 113)"
             }
         }
-        return boletoHtml;
+
+    }
+    console.log(pleno)
+    for (let i = 0; i < pleno.length; i++) {
+        if (pleno[i] == 0) {
+            document.getElementByIdç('0' + i).style.backgroundColor = "rgb(223, 113, 113)"
+        }
+        else if (pleno[i] == 1) {
+            document.getElementById('1' + i).style.backgroundColor = "rgb(223, 113, 113)"
+        }
+        else if (pleno[i] == 2) {
+            document.getElementById('2' + i).style.backgroundColor = "rgb(223, 113, 113)"
+        }
+        else {
+            document.getElementById('m' + i).style.backgroundColor = "rgb(223, 113, 113)"
+        }
+
     }
 }
 
