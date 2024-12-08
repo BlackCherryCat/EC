@@ -77,7 +77,6 @@ function ResultadoP() {
     } else {
         document.getElementById('ganancia').innerHTML = `<p>${aciertos} aciertos <button onclick="primitiva();">Reintentar</button></p>`
     }
-
 }
 
 function ResultadoPM() {
@@ -103,8 +102,9 @@ function ResultadoPM() {
 }
 
 let pleno = [];
+let comb = 0;
 function quiniela() {
-    let comb = parseInt(prompt("Ingrese el número de combinaciones"));
+    comb = parseInt(prompt("Ingrese el número de combinaciones"));
     if (comb > 0 | comb <= 8) {
         boletos = [[]];
         for (let i = 0; i < comb; i++) {
@@ -120,8 +120,8 @@ function quiniela() {
         pleno[1] = Math.round(Math.random() * 3);
         // Mostrar el boleto
         document.getElementById('actividadEvaluableR').innerHTML = mostrarBoleto(comb) + `
-        <div id="ganancia">
-        <button onclick="ResultadoQ();">Ver ganancia</button>
+        <div id="escribir">
+        <button onclick="EscribirQ();">Escribir Quiniela</button>
         </div>
         `
     } else {
@@ -152,9 +152,14 @@ function quiniela() {
     }
 }
 
-function ResultadoQ() {
+function EscribirQ() {
+    document.getElementById('escribir').innerHTML = `
+        <div id="ganancia">
+        <button onclick="ResultadoQ();">Ver ganancia</button>
+        <button onclick="ResultadoQM();">Ver ganancia manual</button>
+        </div>
+        `
     for (let i = 1; i < boletos.length; i++) {
-        console.log(boletos[i])
         for (let j = 0; j < 14; j++) {
             if (boletos[i][j] == 0) {
                 document.getElementById('' + i + j + 0).style.backgroundColor = "rgb(223, 113, 113)"
@@ -168,10 +173,9 @@ function ResultadoQ() {
         }
 
     }
-    console.log(pleno)
     for (let i = 0; i < pleno.length; i++) {
         if (pleno[i] == 0) {
-            document.getElementByIdç('0' + i).style.backgroundColor = "rgb(223, 113, 113)"
+            document.getElementById('0' + i).style.backgroundColor = "rgb(223, 113, 113)"
         }
         else if (pleno[i] == 1) {
             document.getElementById('1' + i).style.backgroundColor = "rgb(223, 113, 113)"
@@ -182,8 +186,108 @@ function ResultadoQ() {
         else {
             document.getElementById('m' + i).style.backgroundColor = "rgb(223, 113, 113)"
         }
-
     }
 }
 
-
+function ResultadoQ() {
+    let boletosG = [[]];
+    let aciertos = 0;
+    for (let i = 0; i < comb; i++) {
+        // Generar combinación de enfrentamientos
+        let combinacion = [];
+        for (let j = 0; j < 14; j++) {
+            combinacion[j] = Math.floor(Math.random() * 3);
+        }
+        boletosG.push(combinacion);
+    }
+    let plenoG = [];
+    plenoG[0] = Math.round(Math.random() * 3);
+    plenoG[1] = Math.round(Math.random() * 3);
+    for (let i = 1; i < boletos.length; i++) {
+        for (let j = 0; j < boletos[i].length; j++) {
+            if (boletos[i][j] == boletosG[i][j]) {
+                aciertos++
+            }
+        }
+    }
+    if (pleno[0] == plenoG[0] & pleno[1] == plenoG[1]) {
+        aciertos++
+    }
+    document.getElementById('ganancia').innerHTML = `<p>${aciertos} aciertos <button onclick="quiniela();">Reintentar</button></p>`
+}
+function ResultadoQM() {
+    let boletosG = [[]];
+    let aciertos = 0;
+    for (let i = 0; i < comb; i++) {
+        let cont = 0
+        let nums = [];
+        for (let j = 0; j < 14; j++) {
+            let num = 0;
+            let char = prompt("Ingrese el resultado de los enfrentamientos");
+            switch (char) {
+                case "1":
+                    num = 0
+                    break;
+                case "x":
+                    num = 1
+                    break;
+                case "2":
+                    num = 2
+                    break;
+                default:
+                    num = 0
+                    break;
+            }
+            nums[j] = num;
+        }
+        boletosG.push(nums)
+    }
+    let plenoG = [];
+    loc = prompt("Ingrese cantidad de goles del equipo local");
+    con = prompt("Ingrese cantidad de goles del equipo contrario");
+    switch (loc) {
+        case "0":
+            plenoG[0] = 0
+            break;
+        case "1":
+            plenoG[0] = 1
+            break;
+        case "2":
+            plenoG[0] = 2
+            break;
+        case "m":
+            plenoG[0] = 3
+            break;
+        default:
+            plenoG[0] = 0
+            break;
+    }
+    switch (con) {
+        case "0":
+            plenoG[1] = 0
+            break;
+        case "1":
+            plenoG[1] = 1
+            break;
+        case "2":
+            plenoG[1] = 2
+            break;
+        case "m":
+            plenoG[1] = 3
+            break;
+        default:
+            plenoG[1] = 0
+            break;
+    }
+    for (let i = 1; i < boletos.length; i++) {
+        for (let j = 0; j < boletos[i].length; j++) {
+            if (boletos[i][j] == boletosG[i][j]) {
+                aciertos++
+            }
+        }
+    }
+    if (pleno[0] == plenoG[0] & pleno[1] == plenoG[1]) {
+        aciertos++
+    }
+    document.getElementById('ganancia').innerHTML = `<p>${aciertos} aciertos <button onclick="quiniela();">Reintentar</button></p>`
+}
