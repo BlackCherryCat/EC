@@ -12,7 +12,7 @@ function verEnunciado() {
 }
 function verResolucion() {
     let num = parseInt(prompt("Ingrese el número de combinaciones"));
-    if (num > 0 | num <= 8) {
+    if (num > 0 && num <= 8) {
         let boletos = [[]];
         for (let i = 0; i < num; i++) {
             let numeros = []
