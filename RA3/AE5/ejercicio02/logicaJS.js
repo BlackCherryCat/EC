@@ -3,6 +3,5 @@ function verEnunciado() {
     document.getElementById("actividadEvaluable").innerHTML = enunciado
 }
 function verResolucion() {
-    const resolucion = ``;
     document.getElementById("actividadEvaluableR").innerHTML = resolucion
 }
