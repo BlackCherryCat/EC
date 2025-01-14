@@ -3,22 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Principal</title>
     <!-- Vinculamos el fichero JavaScript con lógica de programación -->
     <script src="logicaJS.js"></script>
+    <script src="logicaJS2.js"></script>
   </head>
-  <body>
+  <body onload="browser(); device(); version(); geo();">
     <!-- Este código alerta al usuario de un fallo en la ejecución de JavaScript -->
     <noscript>
       Este navegador no soporta JavaScript. Te recomendamos que
       <b>actualices el navegador o habilites JavaScript</b>
     </noscript>
+    <header>
+      <img
+        src="https://www.google.es/chrome/static/images/chrome-logo-m100.svg"
+        alt="Logotipo de Google Chrome."
+        width="33"
+        height="33" />
+    </header>
+    <br />
 
-    <input
-    id="but"
-      type="button"
-      name="boton"
-      value="<Maximizar>"
-      onclick="maximize();" />
+    <h1>Descarga RadarSystem para</h1>
+    <h1 class="browser"></h1>
+    <h3 class="browser"></h3>
+    <h3 id="version"></h3>
+    <p>Selecciona tu paquete de descarga</p>
+    <form action="#" method="post" id="vers">
+      <input type="radio" name="version" id="desktop" value="desktop" />
+      <label for="desktop">Dispositivo de escritorio</label> <br />
+      <input type="radio" name="version" id="mobile" value="mobile" />
+      <label for="mobile">Dispositivo móvil</label> <br />
+      <p>Al descargar RadarSystem, aceptas la</p>
+      <a href="#"
+        >Legislación vigente en tu ubicación <span id="lat"></span>
+        <span id="lon"></span
+      ></a>
+      <br />
+      <br />
+      <input type="button" value="Aceptar e instalar" />
+    </form>
   </body>
 </html>
