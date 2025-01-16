@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Principal</title>
+    <!-- Vinculamos el fichero JavaScript con lógica de programación -->
+    <script src="logicaJS.js"></script>
+  </head>
+  <body onload="recover();">
+    <!-- Este código alerta al usuario de un fallo en la ejecución de JavaScript -->
+    <noscript>
+      Este navegador no soporta JavaScript. Te recomendamos que
+      <b>actualices el navegador o habilites JavaScript</b>
+    </noscript>
+
+    <img
+      id="mainImage"
+      src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+      alt="Example Image"
+      width="200" />
+
+    <form id="userForm">
+      <label for="firstName">Nombre:</label>
+      <input type="text" id="firstName" name="firstName" />
+      <br />
+      <label for="lastName">Apellidos:</label>
+      <input type="text" id="lastName" name="lastName" />
+    </form>
+
+    <p id="paragraph1">Párrafo 1</p>
+    <p id="paragraph2">Párrafo 2</p>
+    <p id="paragraph3">Párrafo 3</p>
+    <p id="paragraph4">Párrafo 4</p>
+
+    <button onclick="modifySecondAndThirdParagraphs()">
+      Modificar segundo y tercer párrafo
+    </button>
+    <button onclick="deleteFourthParagraph()">Eliminar cuarto párrafo</button>
+    <button onclick="createParagraphs()">Crear párrafos</button>
+    <button onclick="modifyImage()">Modificar imagen</button>
+    <button onclick="modifyForm()">Modificar formulario</button>
+    <button onclick="useDocumentWrite()">Método write</button>
+  </body>
+</html>

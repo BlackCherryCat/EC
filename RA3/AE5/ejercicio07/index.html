@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Principal</title>
+    <!-- Vinculamos el fichero JavaScript con lógica de programación -->
+    <script src="logicaJS.js"></script>
+  </head>
+  <body onload="recover();">
+    <!-- Este código alerta al usuario de un fallo en la ejecución de JavaScript -->
+    <noscript>
+      Este navegador no soporta JavaScript. Te recomendamos que
+      <b>actualices el navegador o habilites JavaScript</b>
+    </noscript>
+
+    <h1>Buscaminas: Navegador de niveles</h1>
+    <div id="level">Nivel 1</div>
+    <button id="prevButton" class="nav-button" onclick="prev();" disabled>
+      Nivel Anterior
+    </button>
+    <button id="nextButton" class="nav-button" onclick="next();">
+      Siguiente Nivel
+    </button>
+  </body>
+</html>
