@@ -3,13 +3,13 @@ let currentLevel = 1;
 let levelDisplay = "";
 let prevButton = "";
 let nextButton = "";
+
 function recover() {
     levelDisplay = document.getElementById('level');
     prevButton = document.getElementById('prevButton');
     nextButton = document.getElementById('nextButton');
     prevButton.disabled = currentLevel == 1 ? true : false;
 }
-
 
 function updateLevelDisplay() {
     levelDisplay.textContent = `Nivel ${currentLevel}`;
@@ -33,7 +33,6 @@ function next() {
     }
 }
 
-
 window.addEventListener('popstate', (event) => {
     if (event.state && event.state.level) {
         currentLevel = event.state.level;
@@ -41,5 +40,4 @@ window.addEventListener('popstate', (event) => {
     }
 });
 
-// Initialize history state
 history.replaceState({ level: currentLevel }, `Nivel ${currentLevel}`, `?nivel=${currentLevel}`);

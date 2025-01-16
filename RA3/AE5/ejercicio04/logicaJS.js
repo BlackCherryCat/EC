@@ -4,13 +4,13 @@ function redirectToRandomWebmail() {
 
     switch (randomValue) {
         case 0:
-            url = "https://outlook.live.com/owa/"; // Hotmail login page
+            url = "https://outlook.live.com/owa/";
             break;
         case 1:
-            url = "https://mail.google.com/"; // Gmail login page
+            url = "https://mail.google.com/";
             break;
         case 2:
-            url = "https://www.serviciodecorreo.es/"; // serviciodecorreo.es login page
+            url = "https://www.serviciodecorreo.es/";
             break;
     }
 
