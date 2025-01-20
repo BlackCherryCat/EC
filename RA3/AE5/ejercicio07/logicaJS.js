@@ -33,11 +33,4 @@ function next() {
     }
 }
 
-window.addEventListener('popstate', (event) => {
-    if (event.state && event.state.level) {
-        currentLevel = event.state.level;
-        updateLevelDisplay();
-    }
-});
-
 history.replaceState({ level: currentLevel }, `Nivel ${currentLevel}`, `?nivel=${currentLevel}`);

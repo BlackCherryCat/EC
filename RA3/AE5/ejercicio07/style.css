@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#level {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.nav-button {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+}
+
+.nav-button:disabled {
+    background-color: #CCCCCC;
+    cursor: not-allowed;
+}
+
+.nav-button:not(:disabled):hover {
+    background-color: #0056b3;
+}
+
+.nav-button:not(:disabled):active {
+    background-color: #004080;
+}

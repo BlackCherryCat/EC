@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Principal</title>
     <!-- Vinculamos el fichero JavaScript con lógica de programación -->
-    <script src="logicaJS.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <script src="logicaJSB.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body onload="recover();">
     <!-- Este código alerta al usuario de un fallo en la ejecución de JavaScript -->
@@ -15,13 +15,8 @@
       <b>actualices el navegador o habilites JavaScript</b>
     </noscript>
 
-    <h1>Buscaminas: Navegador de niveles</h1>
-    <div id="level">Nivel 1</div>
-    <button id="prevButton" class="nav-button" onclick="prev();" disabled>
-      Nivel Anterior
-    </button>
-    <button id="nextButton" class="nav-button" onclick="next();">
-      Siguiente Nivel
-    </button>
+    <h1>Buscaminas</h1>
+    <p id="level-display"></p>
+    <button onclick="window.close()">Cerrar</button>
   </body>
 </html>

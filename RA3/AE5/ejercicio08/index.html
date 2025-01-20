@@ -6,7 +6,7 @@
     <title>Principal</title>
     <!-- Vinculamos el fichero JavaScript con lógica de programación -->
     <script src="logicaJS.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body onload="recover();">
     <!-- Este código alerta al usuario de un fallo en la ejecución de JavaScript -->
@@ -16,12 +16,19 @@
     </noscript>
 
     <h1>Buscaminas: Navegador de niveles</h1>
-    <div id="level">Nivel 1</div>
+    <p id="level">Nivel 1</p>
     <button id="prevButton" class="nav-button" onclick="prev();" disabled>
       Nivel Anterior
     </button>
+    <img
+      id="level-image"
+      src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Minesweeper_1.svg"
+      alt="Nivel 1" />
     <button id="nextButton" class="nav-button" onclick="next();">
       Siguiente Nivel
     </button>
+    <br />
+
+    <button id="playButton" onclick="play();">Jugar al nivel 1</button>
   </body>
 </html>
