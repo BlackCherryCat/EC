@@ -9,7 +9,7 @@ class mesa {
     static mesasOcupadas = [];
     constructor(numMesa, numClientes) {
         if (mesa.mesasOcupadas.includes(numMesa)) {
-            this.mostrarMensaje("Mesa ocupada");
+            alert("Mesa ocupada");
             return;
         }
         this.numMesa = numMesa;
@@ -30,7 +30,7 @@ class mesa {
         return this.numMesa;
     }
     set UbicacionMesa(numMesa) {
-        if (this.UbicacionMesa === numMesa) {
+        if (this.UbicacionMesa == numMesa) {
             alert("Ya estás en esa mesa");
         }
         else if (mesa.mesasOcupadas.includes(numMesa)) {
@@ -52,9 +52,9 @@ class mesa {
         }
     }
     addProducto(nombreProducto, idCliente) {
-        let productoEncontrado = productosDisponibles.find(producto => producto[0] === nombreProducto);
+        let productoEncontrado = productosDisponibles.find(producto => producto[0] == nombreProducto);
         if (productoEncontrado) {
-            let cliente = this.clientes.find(cliente => cliente.idCliente === idCliente);
+            let cliente = this.clientes.find(cliente => cliente.idCliente == idCliente);
             if (cliente) {
                 cliente.productos.push({
                     nombre: nombreProducto,
@@ -83,12 +83,12 @@ class mesa {
         productosComanda.forEach(producto => {
             lista += `<li>${producto}</li>`;
         });
-        lista += `</ul><p>Total: $${total.toFixed(2)}</p>`;
+        lista += `</ul><p>Total: ${total.toFixed(2)} €</p>`;
         document.body.innerHTML += lista;
     }
     // Método para obtener la comanda de un cliente específico
     getComandaCliente(idCliente) {
-        let cliente = this.clientes.find(cliente => cliente.idCliente === idCliente);
+        let cliente = this.clientes.find(cliente => cliente.idCliente == idCliente);
 
         if (cliente) {
             let productosComanda = cliente.productos.map(producto => producto.nombre);
@@ -99,7 +99,7 @@ class mesa {
             productosComanda.forEach(producto => {
                 lista += `<li>${producto}</li>`;
             });
-            lista += `</ul><p>Total: $${total.toFixed(2)}</p>`;
+            lista += `</ul><p>Total: ${total.toFixed(2)} €</p>`;
             document.body.innerHTML += lista;
         } else {
             alert("Cliente no encontrado");
@@ -109,7 +109,7 @@ class mesa {
     borrarMesa() {
         this.clientes = null;  // Borrar la referencia a los clientes
         let index = this.mesasOcupadas.indexOf(this.numMesa);
-        if (index !== -1) {
+        if (index != -1) {
             this.mesasOcupadas.splice(index, 1);  // Eliminar la mesa de las mesas ocupadas
         }
     }
@@ -123,12 +123,14 @@ class mesa {
 let mesa1 = new mesa(1, 4);
 let mesa2 = new mesa(2, 6);
 // Agregar productos a los clientes
-mesa1.addProducto("zamburiñas", 1);  // Producto válido
-mesa1.addProducto("cerveza Victoria", 1);  // Producto válido
-mesa1.addProducto("vino blanco", 2);  // Producto válido
-mesa1.addProducto("mejillones", 3);  // Producto válido
+mesa1.addProducto("zamburiñas", 1);
+mesa1.addProducto("cerveza Victoria", 1);
+mesa1.addProducto("vino blanco", 2);
+mesa1.addProducto("mejillones", 3);
 mesa1.ComandaMesa;
 mesa1.getComandaCliente(1); // Comanda del Cliente 1
 mesa1.getComandaCliente(2); // Comanda del Cliente 2
 mesa1.getComandaCliente(3); // Comanda del Cliente 3
 mesa2.UbicacionMesa = 3;  // Cambiar la mesa a la 3
+mesa2.addProducto("gambas", 1);
+mesa2.ComandaMesa;
