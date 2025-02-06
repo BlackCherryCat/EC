@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <meta
+      name="description"
+      content="CONTENEDORES CON DISTINTOS COLORES MEDIANTE ESTRUCTURAS DE CONTROL" />
+    <meta name="author" content="Álvaro" />
+    <title>
+      CONTENEDORES CON DISTINTOS COLORES MEDIANTE ESTRUCTURAS DE CONTROL
+    </title>
+  </head>
+
+  <body>
+    <h1>Kiosko Fernando</h1>
+    <p>Nuestras delicatessen ahora te las llevamos a casa.</p>
+    <button class="primary-button">Ver Menú</button>
+    <button class="secondary-button">Registrarse</button>
+    <h2>Los más demandados</h2>
+    <div class="product">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/468/468339.png"
+        alt="Gambas" />
+      <h3>Gamba roja</h3>
+      <p>Gamba roja de Garrucha (150 gramos).</p>
+      <p class="important-text">3,50 €</p>
+      <button class="buy-button">Comprar</button>
+    </div>
+    <div class="product">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/1137/1137928.png"
+        alt="Mejillones" />
+      <h3>Mejillones</h3>
+      <p>Mejillones del Cantábrico (2 unidades).</p>
+      <p class="important-text">2,00 €</p>
+      <button class="buy-button">Comprar</button>
+    </div>
+    <div class="product centered">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/3751/3751463.png"
+        alt="Prod 3" />
+      <h3>Zamburiñas</h3>
+      <p>Zamburiñas gallegas (2 unidades)</p>
+      <p class="important-text">4,70 €</p>
+      <button class="buy-button">Comprar</button>
+    </div>
+    <div class="product">
+      <form action="" method="post">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name" /> <br>
+        <label for="lname">Primer Apellido</label>
+        <input type="text" name="lname" id="lname" /> <br>
+        <label for="sname">Segundo Apellido</label>
+        <input type="text" name="sname" id="sname" /> <br>
+        <label for="phone">Teléfono</label>
+        <input type="tel" name="phone" id="phone" /> <br>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" /> <br>
+        <label for="direction">
+          Dirección
+          <textarea
+            name="direction"
+            id="direction"
+            cols="30"
+            rows="10"></textarea>
+        </label> <br>
+        <button type="submit">Registrarse</button>
+      </form>
+    </div>
+  </body>
+</html>
