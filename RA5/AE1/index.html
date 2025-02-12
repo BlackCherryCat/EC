@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <!-- Se incluye el script con defer para que se ejecute cuando el DOM esté listo -->
+    <script src="logicaJS.js" defer></script>
     <meta
       name="description"
       content="CONTENEDORES CON DISTINTOS COLORES MEDIANTE ESTRUCTURAS DE CONTROL" />
@@ -15,10 +17,21 @@
 
   <body>
     <h1>Kiosko Fernando</h1>
-    <p>Nuestras delicatessen ahora te las llevamos a casa.</p>
-    <button class="primary-button">Ver Menú</button>
-    <button class="secondary-button">Registrarse</button>
+    <!-- El párrafo tiene id para actualizar su contenido según el usuario -->
+    <p id="welcome-message">
+      Nuestras delicatessen ahora te las llevamos a casa.
+    </p>
+    <!-- Botones actualizados: "Ver pedido" y "Log out" (este último con fondo rojo) -->
+    <button class="primary-button" id="ver-pedido">Ver pedido</button>
+    <button
+      class="secondary-button"
+      id="logout-button"
+      style="background-color: red">
+      Log out
+    </button>
+
     <h2>Los más demandados</h2>
+    <!-- Productos -->
     <div class="product">
       <img
         src="https://cdn-icons-png.flaticon.com/512/468/468339.png"
@@ -40,34 +53,97 @@
     <div class="product centered">
       <img
         src="https://cdn-icons-png.flaticon.com/512/3751/3751463.png"
-        alt="Prod 3" />
+        alt="Zamburiñas" />
       <h3>Zamburiñas</h3>
       <p>Zamburiñas gallegas (2 unidades)</p>
       <p class="important-text">4,70 €</p>
       <button class="buy-button">Comprar</button>
     </div>
-    <div class="product">
-      <form action="" method="post">
-        <label for="name">Nombre</label>
-        <input type="text" name="name" id="name" /> <br>
-        <label for="lname">Primer Apellido</label>
-        <input type="text" name="lname" id="lname" /> <br>
-        <label for="sname">Segundo Apellido</label>
-        <input type="text" name="sname" id="sname" /> <br>
-        <label for="phone">Teléfono</label>
-        <input type="tel" name="phone" id="phone" /> <br>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" /> <br>
-        <label for="direction">
-          Dirección
-          <textarea
-            name="direction"
-            id="direction"
-            cols="30"
-            rows="10"></textarea>
-        </label> <br>
-        <button type="submit">Registrarse</button>
-      </form>
+
+    <!-- Contenedor que agrupa el formulario de contacto (a la izquierda)
+         y el resumen de pedido (a la derecha) -->
+    <div class="order-container">
+      <!-- FORMULARIO: Datos de contacto -->
+      <div class="contact-form">
+        <h2>Datos de contacto</h2>
+        <form id="contact-form">
+          <label for="nombre">Nombre del cliente:</label>
+          <!-- Pattern: 3 a 10 caracteres alfabéticos, primer letra mayúscula -->
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+            title="3-10 caracteres alfabéticos, el primero en mayúscula" />
+          <br />
+          <span class="error-message" id="error-nombre"></span>
+
+          <label for="primerApellido">Primer apellido:</label>
+          <!-- Pattern: 4 a 8 caracteres alfabéticos, primer letra mayúscula -->
+          <input
+            type="text"
+            id="primerApellido"
+            name="primerApellido"
+            required
+            title="4-8 caracteres alfabéticos, el primero en mayúscula" />
+          <br />
+          <span class="error-message" id="error-primerApellido"></span>
+
+          <label for="segundoApellido">Segundo apellido:</label>
+          <!-- No es obligatorio, pero se valida si se introduce -->
+          <input
+            type="text"
+            id="segundoApellido"
+            name="segundoApellido"
+            title="4-8 caracteres alfabéticos, el primero en mayúscula" />
+          <br />
+          <span class="error-message" id="error-segundoApellido"></span>
+
+          <label for="telefono">Télefono de contacto:</label>
+          <!-- Pattern: +99 999-999-999 -->
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            required
+            title="Formato: +99 999-999-999" />
+          <br />
+          <span class="error-message" id="error-telefono"></span>
+
+          <label for="email">Email:</label>
+          <!-- Se utiliza un patrón básico para email -->
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            title="Introduce un email válido" />
+          <br />
+          <span class="error-message" id="error-email"></span>
+
+          <label for="direccion">Dirección:</label>
+          <!-- Patrón que obliga a introducir al menos 5 caracteres -->
+          <input
+            type="text"
+            id="direccion"
+            name="direccion"
+            required
+            title="Mínimo 5 caracteres" />
+          <br />
+          <span class="error-message" id="error-direccion"></span> <br />
+
+          <button type="submit" id="realizar-pedido">Realizar pedido</button>
+        </form>
+      </div>
+
+      <!-- RESUMEN DE PEDIDO -->
+      <div class="order-summary">
+        <h2>Resumen de pedido</h2>
+        <div id="order-details">
+          <p>Actualmente no hay datos de contacto</p>
+        </div>
+        <button id="borrar-pedido">Borrar pedido</button>
+      </div>
     </div>
   </body>
 </html>

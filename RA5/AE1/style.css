@@ -21,26 +21,28 @@ button {
   border-radius: 5px;
   margin: 10px;
   color: white;
+  cursor: pointer;
 }
+
 button.primary-button {
   background-color: #3498db;
 }
 button.primary-button:hover {
-  background-color: rgb(33.1380753138, 125.1882845188, 186.8619246862);
+  background-color: rgb(33, 125, 187);
   transition: background-color 0.3s ease-out;
 }
 button.secondary-button {
   background-color: #2ecc71;
 }
 button.secondary-button:hover {
-  background-color: rgb(36.616, 162.384, 89.948);
+  background-color: rgb(36, 162, 90);
   transition: background-color 0.3s ease-out;
 }
 button.buy-button {
   background-color: #f39c12;
 }
 button.buy-button:hover {
-  background-color: rgb(199.8795180723, 126.5060240964, 10.1204819277);
+  background-color: rgb(200, 127, 10);
   transition: background-color 0.3s ease-out;
 }
 
@@ -49,6 +51,7 @@ button.buy-button:hover {
   border: solid 1px black;
   border-radius: 5px;
   margin: 10px;
+  padding: 10px;
 }
 .product:hover {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
@@ -77,6 +80,45 @@ h3 {
 }
 .centered:not(:last-child) {
   margin-right: 20px;
+}
+
+/* Estilos para el formulario y el resumen de pedido */
+.order-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.contact-form,
+.order-summary {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  width: 45%;
+  text-align: left;
+}
+
+.contact-form h2,
+.order-summary h2 {
+  color: #3498db;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.contact-form input {
+  width: 90%;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
 }
 
 /*# sourceMappingURL=style.css.map */
