@@ -32,7 +32,7 @@ button.primary-button:hover {
   transition: background-color 0.3s ease-out;
 }
 button.secondary-button {
-  background-color: #2ecc71;
+  background-color: red;
 }
 button.secondary-button:hover {
   background-color: rgb(36, 162, 90);
